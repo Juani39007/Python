@@ -132,3 +132,6 @@ python
 score_text = font.render(f"Score: {score}   Best: {high_score}", True, (255, 255, 255))
 
 high_score se crea una sola vez al empezar el programa y solo cambia cuando la puntuación la supera. reset_game no la toca, así que sobrevive a los reinicios.
+
+
+[enlace a gameplay](assets/gameplay.mp4)
