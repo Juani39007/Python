@@ -7,6 +7,7 @@ class Obstacle:
     """An obstacle that the player must avoid"""
 
     def __init__(self):
+        #Reto 2
         size = random.randint(20, 70)  # Random size between 20 and 70 pixels
         x = random.randint(0, WIDTH - size)
         self.rect = pygame.Rect(x, -size , size, size)

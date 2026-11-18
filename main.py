@@ -21,12 +21,14 @@ last_obstacle_spawn_time = pygame.time.get_ticks()  # Track the last time an obs
 score = 0  # Initialize the score
 game_over = False  # Initialize the game over state
 paused = False  # True while the game is paused
+#Reto 9
 high_score = 0  # Best score of this run
 survival_time = 0  # Milliseconds survived
 last_tick = pygame.time.get_ticks()  # Time of the previous frame
 
 font = pygame.font.Font(None, 36)  
 
+#Reto 7 
 def get_spawn_delay(current_score):
     """Every 10 points the delay is 50 ms shorter, never below the minimum"""
     delay = SPAWN_OBSTACLE_DELAY - (current_score // 10) * 50
@@ -52,17 +54,22 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+        
         if event.type == pygame.KEYDOWN:
+            #Reto 4 
             if event.key == pygame.K_ESCAPE and not game_over:
                 paused = not paused  # Pause / continue
+            #Reto 5
             if event.key == pygame.K_r and game_over:
                 reset_game()  # Restart after Game Over
+            #Reto 8
             if event.key == pygame.K_PLUS:
                 player.change_speed(1)  # Speed up player 1
             if event.key == pygame.K_MINUS:
                 player.change_speed(-1)  # Slow down player 1
 
     # The survival time only grows while the game is running
+    #Reto 6
     now = pygame.time.get_ticks()
     if not game_over and not paused:  
         survival_time += now - last_tick
@@ -79,6 +86,7 @@ while running:
         # Update the position of each obstacle
         for obstacle in obstacles:
             obstacle.move()
+            #Reto 3 
             if player.rect.colliderect(obstacle.rect) or player2.rect.colliderect(obstacle.rect):  
                 game_over = True
 
@@ -91,6 +99,7 @@ while running:
             else :
                 score += 1  # Increment the score for each obstacle that goes off screen
         obstacles = visible_obstacles
+        #Reto 9
         if score > high_score:
             high_score = score  # Remember the best score
 
@@ -108,6 +117,7 @@ while running:
 
     # Display the score
     
+    #Reto 9
     score_text = font.render(f"Score: {score}   Best: {high_score}", True, (255, 255, 255))
     screen.blit(score_text, (10, 10))
 

@@ -22,6 +22,7 @@ class Player:
             self.rect.y -= self.speed
         if keys[pygame.K_DOWN]:
             self.rect.y += self.speed
+        #Reto1
         self.rect.clamp_ip(pygame.Rect(0, 0, WIDTH, HEIGHT))  # Keep the player inside the window
 
     def moveWASD(self):
@@ -42,6 +43,7 @@ class Player:
         """Draw the player on the given surface"""
         pygame.draw.rect(surface, self.color, self.rect)
 
+    #Reto 8
     def change_speed(self, amount):
         """Change the speed, always between the minimum and the maximum"""
         self.speed = max(MIN_PLAYER_SPEED, min(MAX_PLAYER_SPEED, self.speed + amount))

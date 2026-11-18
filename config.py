@@ -10,8 +10,10 @@ OBSTACLES_COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 
 
 SPAWN_OBSTACLE_DELAY = 500 #milliseconds
 
+#Reto 8
 MIN_PLAYER_SPEED = 2  # Lowest speed of player 1
 MAX_PLAYER_SPEED = 12  # Highest speed of player 1
+#Reto 7
 MIN_SPAWN_DELAY = 150  # The spawn delay can never be lower than this
 
 INITIAL_LIVES = 3  # Challenge 10: lives of each player
